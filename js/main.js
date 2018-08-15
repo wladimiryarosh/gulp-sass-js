@@ -21,12 +21,24 @@ $(document).ready(function () {
         if (event.target === $modal[0]) {
             $modal.css('display', "none");
         }
-
     });
 
+    $('#main-menu').on('click', 'li a', function (e) {
+        e.preventDefault();
+        let target = $(this).attr('href');
+        target = target.replace('#', '');
+        $.ajax({
+            method: "GET",
+            url: target + ".html",
+            dataType: "html",
+            success: function (html) {
+                $('#content').html(html);
+            }
 
+        });
+        console.log(target);
 
-
+    });
     //js
 
     // var modal = document.getElementById("modal");

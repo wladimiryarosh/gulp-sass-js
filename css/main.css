@@ -6,6 +6,21 @@
 .container {
   width: 75%;
   margin: 0 auto; }
+  @media only screen and (min-width: 2560px) {
+    .container {
+      width: 45%; } }
+  @media only screen and (max-width: 1024px) {
+    .container {
+      width: 85%; } }
+  @media only screen and (max-width: 768px) {
+    .container {
+      width: 91%; } }
+  @media only screen and (max-width: 425px) {
+    .container {
+      width: 75%; } }
+  @media only screen and (max-width: 320px) {
+    .container {
+      width: 88%; } }
 
 body {
   font-family: "Droid Sans", sans-serif; }
@@ -36,6 +51,9 @@ header {
       display: flex;
       align-items: stretch;
       height: 100%; }
+      @media only screen and (max-width: 425px) {
+        header .content nav {
+          display: none; } }
       header .content nav ul {
         display: flex;
         border-right: 1px solid #424547;
@@ -122,6 +140,15 @@ section {
       background-color: #f7f7f7;
       border: 1px solid #e8e8e8;
       margin-bottom: 30px; }
+      @media only screen and (max-width: 1024px) {
+        section .works .works-item {
+          max-width: 250px; } }
+      @media only screen and (max-width: 768px) {
+        section .works .works-item {
+          max-width: 225px; } }
+      @media only screen and (max-width: 425px) {
+        section .works .works-item {
+          max-width: 330px; } }
       section .works .works-item .photo img {
         width: 100%; }
       section .works .works-item .text {
@@ -138,7 +165,8 @@ section {
           font-size: 13px; }
       section .works .works-item .line img {
         vertical-align: middle;
-        padding: 0 20px; }
+        padding: 0 20px;
+        width: 100%; }
       section .works .works-item .info {
         padding: 15px 20px;
         display: flex;
@@ -166,9 +194,18 @@ footer {
   -webkit-box-shadow: 0px -5px 0px 0px #2f3235;
   -moz-box-shadow: 0px -5px 0px 0px #2f3235;
   box-shadow: 0px -5px 0px 0px #2f3235; }
+  @media only screen and (max-width: 768px) {
+    footer {
+      height: 703px; } }
+  @media only screen and (max-width: 425px) {
+    footer {
+      height: 1246px; } }
+  @media only screen and (max-width: 375px) {
+    footer {
+      height: 1276px; } }
   footer .information-section {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     color: #ffffff; }
     footer .information-section h2 {
       color: #d4d4d4;
@@ -179,108 +216,131 @@ footer {
     footer .information-section p {
       color: #afafaf;
       font-size: 13px; }
-    footer .information-section .local-posts {
+    footer .information-section .wrap {
       width: 25%; }
-      footer .information-section .local-posts div:nth-child(2) {
-        padding: 0 0 20px; }
-      footer .information-section .local-posts .posts-item {
-        padding: 20px 0; }
-      footer .information-section .local-posts .footer-line {
-        background: url("../img/footer-line.png") center;
-        height: 3px; }
-    footer .information-section .twitter-posts {
-      width: 25%;
+      @media only screen and (max-width: 768px) {
+        footer .information-section .wrap {
+          width: 50%; } }
+      @media only screen and (max-width: 425px) {
+        footer .information-section .wrap {
+          width: 100%; } }
+    footer .information-section #local-posts div:nth-child(2) {
+      padding: 0 0 20px; }
+    footer .information-section #local-posts .posts-item {
+      padding: 20px 0; }
+    footer .information-section #local-posts .footer-line {
+      background: url("../img/footer-line.png") center;
+      height: 3px; }
+    footer .information-section #twitter-posts {
       padding: 0 30px; }
-      footer .information-section .twitter-posts div:nth-child(2) {
+      @media only screen and (max-width: 425px) {
+        footer .information-section #twitter-posts {
+          padding: 0; } }
+      footer .information-section #twitter-posts div:nth-child(2) {
         padding: 0 0 20px; }
-      footer .information-section .twitter-posts .posts-item {
+      footer .information-section #twitter-posts .posts-item {
         padding: 20px 0; }
-      footer .information-section .twitter-posts .footer-line {
+      footer .information-section #twitter-posts .footer-line {
         background: url("../img/footer-line.png") center;
         height: 3px; }
-      footer .information-section .twitter-posts .fa-twitter {
+      footer .information-section #twitter-posts .fa-twitter {
         color: #a6a8a9;
         padding-right: 5px; }
-    footer .information-section .about-me {
-      width: 25%;
+    footer .information-section #about-me {
       padding-right: 30px; }
-      footer .information-section .about-me p {
+      footer .information-section #about-me p {
         padding-bottom: 40px; }
-    footer .information-section form {
-      width: 25%; }
-      footer .information-section form #author {
-        background-color: #27292b;
-        border: 0;
-        padding: 8px 0;
-        width: 220px;
-        height: 35px;
-        margin: 5px 0 10px;
-        color: #afafaf; }
-        footer .information-section form #author:focus {
-          outline: none; }
-      footer .information-section form #email {
-        background-color: #27292b;
-        border: 0;
-        padding: 8px 0;
-        width: 220px;
-        height: 35px;
-        margin-bottom: 10px;
-        color: #afafaf; }
-        footer .information-section form #email:focus {
-          outline: none; }
-      footer .information-section form #comment {
-        background-color: #27292b;
-        border: 0;
-        padding: 8px 0;
-        width: 220px;
-        height: 140px;
-        resize: none;
-        color: #afafaf; }
-        footer .information-section form #comment:focus {
-          outline: none; }
-      footer .information-section form #submit {
-        cursor: pointer;
-        font-size: 13px;
-        color: #ffffff;
-        width: 110px;
-        padding: 5px 0;
-        margin: 10px 0 25px;
-        border-radius: 5px;
-        border: 2px solid #52768c;
-        background: #6f99b4;
-        background: -moz-linear-gradient(top, #6f99b4 0%, #88b3ce 51%, #6f99b4 52%, #6f99b4 100%);
-        background: -webkit-linear-gradient(top, #6f99b4 0%, #88b3ce 51%, #6f99b4 52%, #6f99b4 100%);
-        background: -o-linear-gradient(top, #6f99b4 0%, #88b3ce 51%, #6f99b4 52%, #6f99b4 100%);
-        background: -ms-linear-gradient(top, #6f99b4 0%, #88b3ce 51%, #6f99b4 52%, #6f99b4 100%);
-        background: linear-gradient(to bottom, #6f99b4 0%, #88b3ce 51%, #6f99b4 52%, #6f99b4 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6f99b4', endColorstr='#6f99b4', GradientType=0 ); }
-  footer .wrap {
+    footer .information-section form #author {
+      background-color: #27292b;
+      border: 0;
+      padding: 10px 10px;
+      width: 220px;
+      height: 35px;
+      margin: 5px 0 10px;
+      color: #afafaf; }
+      @media only screen and (max-width: 768px) {
+        footer .information-section form #author {
+          width: 310px; } }
+      @media only screen and (max-width: 768px) {
+        footer .information-section form #author {
+          width: 280px; } }
+      footer .information-section form #author:focus {
+        outline: none; }
+    footer .information-section form #email {
+      background-color: #27292b;
+      border: 0;
+      padding: 10px 10px;
+      width: 220px;
+      height: 35px;
+      margin-bottom: 10px;
+      color: #afafaf; }
+      @media only screen and (max-width: 768px) {
+        footer .information-section form #email {
+          width: 310px; } }
+      @media only screen and (max-width: 768px) {
+        footer .information-section form #email {
+          width: 280px; } }
+      footer .information-section form #email:focus {
+        outline: none; }
+    footer .information-section form #comment {
+      background-color: #27292b;
+      border: 0;
+      padding: 10px 10px;
+      width: 220px;
+      height: 140px;
+      resize: none;
+      color: #afafaf; }
+      @media only screen and (max-width: 768px) {
+        footer .information-section form #comment {
+          width: 310px; } }
+      @media only screen and (max-width: 768px) {
+        footer .information-section form #comment {
+          width: 280px; } }
+      footer .information-section form #comment:focus {
+        outline: none; }
+    footer .information-section form #submit {
+      cursor: pointer;
+      font-size: 13px;
+      color: #ffffff;
+      width: 110px;
+      padding: 5px 0;
+      margin: 10px 0 25px;
+      border-radius: 5px;
+      border: 2px solid #52768c;
+      background: #6f99b4;
+      background: -moz-linear-gradient(top, #6f99b4 0%, #88b3ce 51%, #6f99b4 52%, #6f99b4 100%);
+      background: -webkit-linear-gradient(top, #6f99b4 0%, #88b3ce 51%, #6f99b4 52%, #6f99b4 100%);
+      background: -o-linear-gradient(top, #6f99b4 0%, #88b3ce 51%, #6f99b4 52%, #6f99b4 100%);
+      background: -ms-linear-gradient(top, #6f99b4 0%, #88b3ce 51%, #6f99b4 52%, #6f99b4 100%);
+      background: linear-gradient(to bottom, #6f99b4 0%, #88b3ce 51%, #6f99b4 52%, #6f99b4 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6f99b4', endColorstr='#6f99b4', GradientType=0 ); }
+  footer .social-contacts {
     height: 70px;
     width: 100%;
     background: #2f3235;
     -webkit-box-shadow: 0px -2px 0px 0px #24272a;
     -moz-box-shadow: 0px -2px 0px 0px #24272a;
     box-shadow: 0px -2px 0px 0px #24272a; }
-    footer .wrap .copyright {
+    footer .social-contacts .copyright {
       display: flex;
       justify-content: space-between;
       align-items: center;
       height: 70px;
       color: #969696; }
-      footer .wrap .copyright .social-links {
+      footer .social-contacts .copyright .social-links {
         color: #fff; }
-        footer .wrap .copyright .social-links .fa-facebook-square {
+        footer .social-contacts .copyright .social-links .fa-facebook-square {
           font-size: 35px;
           color: #39599f; }
-        footer .wrap .copyright .social-links .fa-twitter-square {
+        footer .social-contacts .copyright .social-links .fa-twitter-square {
           font-size: 35px;
           color: #45b0e3; }
-        footer .wrap .copyright .social-links .fa-google-plus-square {
+        footer .social-contacts .copyright .social-links .fa-google-plus-square {
           font-size: 35px;
           color: #db4437; }
-        footer .wrap .copyright .social-links .fa-pinterest-square {
+        footer .social-contacts .copyright .social-links .fa-pinterest-square {
           font-size: 35px;
           color: #bd081c; }
-        footer .wrap .copyright .social-links .fa-linkedin-square {
+        footer .social-contacts .copyright .social-links .fa-linkedin-square {
           font-size: 35px;
           color: #0073b7; }

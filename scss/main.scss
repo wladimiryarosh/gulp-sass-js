@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 @mixin _4k {
-  @media only screen and (min-width: 2560px){
+  @media only screen and (min-width: 2560px) {
     @content;
   }
 }
@@ -54,6 +54,7 @@
 }
 body {
   font-family: "Droid Sans", sans-serif;
+  //overflow-z: hidd
 }
 header {
   background-color: #3a3d40;
@@ -62,6 +63,23 @@ header {
   display: flex;
   align-items: center;
   position: relative;
+  @include mobile-l {
+    position: fixed;
+    top: 0;
+    &.mobile-header-on-scroll {
+      height: 50px;
+      &:after {
+        content: '';
+        display: block;
+        height: 6px;
+        width: 100%;
+        background: #4a4d50;
+        border-bottom: 1px solid #000;
+        position: fixed;
+        top: 50px;
+      }
+    }
+  }
   &:after {
     content: '';
     display: block;
@@ -78,7 +96,7 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    nav {
+    nav#menu-primary {
       display: flex;
       align-items: stretch;
       height: 100%;
@@ -115,10 +133,123 @@ header {
         }
       }
     }
+
+    #mobile-menu-wrap {
+      display: none;
+      @include mobile-l {
+        display: block;
+      }
+      #btn-m-menu-open {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 25px;
+        right: 10px;
+        transition: .5s;
+        transform: translateX(0);
+        &.btn-m-menu-on-scroll {
+          top: 3px;
+        }
+        &.active-btn-m-m-open {
+          transform: translateX(150%);
+        }
+        .hamburger {
+          width: 35px;
+          height: 2px;
+          background-color: #fff;
+          margin: 10px auto;
+        }
+      }
+      #btn-m-menu-close {
+        width: 50px;
+        height: 50px;
+        position: fixed;
+        top: 25px;
+        right: 10px;
+        transform: translateX(150%);
+        transition: .5s;
+        &.btn-m-menu-on-scroll {
+          top: 3px;
+        }
+        &.active-btn-m-m-close {
+          transform: translateX(0);
+        }
+        .cross {
+          width: 35px;
+          height: 2px;
+          background-color: #fff;
+          margin: 10px auto;
+          position: relative;
+          top: 7px;
+          &:first-of-type {
+            -webkit-transform-origin: 25%;
+            -moz-transform-origin: 25%;
+            -ms-transform-origin: 25%;
+            -o-transform-origin: 25%;
+            transform-origin: 25%;
+            -webkit-transform: rotateZ(45deg);
+            -moz-transform: rotateZ(45deg);
+            -ms-transform: rotateZ(45deg);
+            -o-transform: rotateZ(45deg);
+            transform: rotateZ(45deg);
+            transition: .5s;
+          }
+          &:last-of-type {
+            -webkit-transform-origin: 25%;
+            -moz-transform-origin: 25%;
+            -ms-transform-origin: 25%;
+            -o-transform-origin: 25%;
+            transform-origin: 25%;
+            -webkit-transform: rotateZ(-45deg);
+            -moz-transform: rotateZ(-45deg);
+            -ms-transform: rotateZ(-45deg);
+            -o-transform: rotateZ(-45deg);
+            transform: rotateZ(-45deg);
+            transition: .5s;
+          }
+        }
+      }
+      #mobile-menu {
+        background-color: #2e3031;
+        position: fixed;
+        top: 96px;
+        right:0;
+        height: 220px;
+        width: 100%;
+        z-index: 2;
+        transition: .5s;
+        transform: translateX(100%);
+        &.active-mobile-menu {
+          transform: translateX(0%);
+        }
+        &.mobile-menu-on-scroll {
+          top: 56px;
+          transition: 0s;
+        }
+        ul {
+
+          li {
+              list-style: none;
+            a {
+              color: #fff;
+              text-decoration: none;
+              text-transform: uppercase;
+              font-size: 15px;
+              display: block;
+              text-align: center;
+              margin: 15px 0;
+            }
+          }
+        }
+      }
+    }
   }
 }
 section {
   margin-top: 40px;
+  @include mobile-l {
+    margin-top: 120px;
+  }
   .bottom {
     .modal {
       display: none;
@@ -240,6 +371,9 @@ section {
   font-size: 37px;
   padding: 0 13px;
   cursor: pointer;
+  @include mobile-l {
+    bottom: 55px;
+  }
 }
 footer {
   height: 385px;
@@ -336,9 +470,6 @@ footer {
         @include tablet {
           width: 310px;
         }
-        @include tablet {
-          width: 280px;
-        }
         &:focus {
           outline: none;
         }
@@ -354,9 +485,6 @@ footer {
         @include tablet {
           width: 310px;
         }
-        @include tablet {
-          width: 280px;
-        }
         &:focus {
           outline: none;
         }
@@ -371,9 +499,6 @@ footer {
         color: #afafaf;
         @include tablet {
           width: 310px;
-        }
-        @include tablet {
-          width: 280px;
         }
         &:focus {
           outline: none;

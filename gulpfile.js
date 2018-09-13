@@ -19,7 +19,7 @@ gulp.task('browserSync', function() {
         },
         notify:false
     })
-})
+});
 gulp.task('watch', ['browserSync', 'sass'], function(){
     gulp.watch('scss/*.scss', ['sass']);
     // gulp.watch('index.html', ['browserSync']);
